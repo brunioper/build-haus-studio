@@ -1,4 +1,5 @@
 import { BlueprintHero } from "@/components/hero/BlueprintHero";
+import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { HomeIntro } from "@/components/sections/HomeIntro";
 import { MarqueeSection } from "@/components/sections/MarqueeSection";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <main className="home-main" id="home-main">
         <HomeIntro />
         <ServicesPreview />
+        <CapabilitiesSection />
         <MarqueeSection />
         <ProjectsPreview />
         <ProcessPreview />
