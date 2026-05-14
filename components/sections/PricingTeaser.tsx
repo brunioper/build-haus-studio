@@ -4,21 +4,29 @@ import { Reveal } from "@/components/ui/Reveal";
 const pricingItems = [
   {
     type: "Landing Page",
+    from: "$7.900 UYU",
+    featured: true,
     outcome: "Convertir tráfico en consultas o ventas.",
-    includes: ["Estrategia de oferta", "Diseño a medida", "Formulario + medición", "10–15 días hábiles"],
+    includes: ["Estrategia de oferta", "Diseño a medida", "Formulario + medición", "7 días hábiles"],
   },
   {
     type: "E-commerce",
+    from: null,
+    featured: false,
     outcome: "Tienda que presenta, convence y cierra.",
     includes: ["Diseño de tienda", "Páginas de producto", "Experiencia mobile", "Camino de compra optimizado"],
   },
   {
     type: "Sitio Empresarial",
+    from: null,
+    featured: false,
     outcome: "Web que genera confianza y consultas.",
     includes: ["Arquitectura completa", "Servicios + contacto", "SEO básico", "Estructura escalable"],
   },
   {
     type: "App / Plataforma",
+    from: null,
+    featured: false,
     outcome: "Herramienta digital construida para operar.",
     includes: ["Análisis funcional", "UX/UI completo", "Desarrollo web app", "Integraciones + escala"],
   },
@@ -40,10 +48,21 @@ export function PricingTeaser() {
 
         <div className="pricing-grid">
           {pricingItems.map((item, index) => (
-            <Reveal className="pricing-card" key={item.type} delay={index * 0.06}>
+            <Reveal className={`pricing-card${item.featured ? " pricing-card--featured" : ""}`} key={item.type} delay={index * 0.06}>
               <div className="pricing-card__top">
                 <span className="pricing-card__num">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="pricing-card__type">{item.type}</h3>
+                {item.from ? (
+                  <div className="pricing-card__from">
+                    <span className="pricing-card__from-label">desde</span>
+                    <span className="pricing-card__from-price">{item.from}</span>
+                  </div>
+                ) : (
+                  <div className="pricing-card__from pricing-card__from--mute">
+                    <span className="pricing-card__from-label">inversión</span>
+                    <span className="pricing-card__from-price">a consultar</span>
+                  </div>
+                )}
                 <p className="pricing-card__outcome">{item.outcome}</p>
               </div>
               <ul className="pricing-card__includes">

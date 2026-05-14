@@ -1,49 +1,78 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useInView } from "motion/react";
 import { Reveal } from "@/components/ui/Reveal";
 
-function ScoreRing({ score }: { score: number }) {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(wrapRef, { once: true, margin: "-60px" });
-  const [count, setCount] = useState(0);
-  const r = 58;
-  const circ = 2 * Math.PI * r;
-
-  useEffect(() => {
-    if (!inView) return;
-    const dur = 1800;
-    const start = performance.now();
-    function tick(now: number) {
-      const k = Math.min(1, (now - start) / dur);
-      const eased = 1 - Math.pow(1 - k, 2.8);
-      setCount(Math.round(score * eased));
-      if (k < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }, [inView, score]);
-
+/* ── Responsive device wireframe ── */
+function DeviceMockup() {
   return (
-    <div className="cap-ring-wrap" ref={wrapRef}>
-      <svg className="cap-ring" viewBox="0 0 136 136">
-        <circle cx="68" cy="68" r={r} fill="none" stroke="var(--line)" strokeWidth="5" />
-        <circle
-          cx="68" cy="68" r={r}
-          fill="none"
-          stroke="var(--accent)"
-          strokeWidth="5"
-          strokeLinecap="round"
-          strokeDasharray={circ}
-          strokeDashoffset={circ - (count / 100) * circ}
-          transform="rotate(-90 68 68)"
-        />
-      </svg>
-      <span className="cap-ring__num">{count}<small>/100</small></span>
+    <div className="cap-devices">
+      {/* Desktop browser */}
+      <div className="cap-device cap-device--desktop">
+        <div className="cap-device__chrome">
+          <i /><i /><i />
+          <span className="cap-device__url">buildhaus.studio</span>
+        </div>
+        <div className="cap-device__screen">
+          <div className="cap-device__sim-nav" />
+          <div className="cap-device__sim-hero">
+            <div className="cap-device__sim-h1" />
+            <div className="cap-device__sim-h1" style={{ width: "72%" }} />
+            <div className="cap-device__sim-cta" />
+          </div>
+          <div className="cap-device__sim-cards">
+            <div /><div /><div />
+          </div>
+        </div>
+      </div>
+      {/* Mobile phone */}
+      <div className="cap-device cap-device--mobile">
+        <div className="cap-device__notch" />
+        <div className="cap-device__screen">
+          <div className="cap-device__sim-nav cap-device__sim-nav--sm" />
+          <div className="cap-device__sim-hero">
+            <div className="cap-device__sim-h1" />
+            <div className="cap-device__sim-h1" style={{ width: "82%" }} />
+            <div className="cap-device__sim-cta" style={{ width: "78%" }} />
+          </div>
+          <div className="cap-device__sim-cards cap-device__sim-cards--sm">
+            <div /><div />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
+/* ── Core Web Vitals bars ── */
+function SpeedBars() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const metrics = [
+    { label: "LCP", value: "< 1.2s", pct: 91 },
+    { label: "FID", value: "< 10ms", pct: 96 },
+    { label: "CLS", value: "0.01",   pct: 99 },
+  ];
+  return (
+    <div className="cap-speed" ref={ref}>
+      {metrics.map((m) => (
+        <div key={m.label} className="cap-speed__row">
+          <span className="cap-speed__label">{m.label}</span>
+          <div className="cap-speed__track">
+            <div
+              className="cap-speed__fill"
+              style={{ width: inView ? `${m.pct}%` : "0%", transitionDelay: `${metrics.indexOf(m) * 120}ms` }}
+            />
+          </div>
+          <span className="cap-speed__val">{m.value}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ── Bar chart (results card) ── */
 function BarChart() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -54,17 +83,13 @@ function BarChart() {
     { h: 72, label: "Abr" },
     { h: 91, label: "May" },
   ];
-
   return (
     <div className="cap-chart" ref={ref}>
       {bars.map((b, i) => (
         <div key={i} className="cap-chart__col">
           <div
             className="cap-chart__bar"
-            style={{
-              height: inView ? `${b.h}%` : "0%",
-              transitionDelay: `${i * 130}ms`,
-            }}
+            style={{ height: inView ? `${b.h}%` : "0%", transitionDelay: `${i * 130}ms` }}
           />
           <span>{b.label}</span>
         </div>
@@ -113,19 +138,14 @@ export function CapabilitiesSection() {
 
         <div className="cap-grid">
 
-          {/* ── Card 1: Performance ── */}
+          {/* ── Card 1: Responsive + Speed ── */}
           <Reveal className="cap-card cap-card--perf" delay={0.04}>
-            <div className="cap-card__tag">Rendimiento</div>
-            <ScoreRing score={100} />
+            <div className="cap-card__tag">Responsive &amp; rápido</div>
+            <DeviceMockup />
+            <SpeedBars />
             <p className="cap-card__copy">
-              Sitios que pasan 100/100 en Google Lighthouse. Carga instantánea,
-              mejor ranking, menor rebote.
+              Sitios que cargan rápido en cualquier dispositivo. Mobile-first, Core Web Vitals optimizados.
             </p>
-            <div className="cap-badges">
-              {["Performance", "SEO", "Best Practices", "Accessibility"].map((b) => (
-                <span key={b}>{b}</span>
-              ))}
-            </div>
           </Reveal>
 
           {/* ── Card 2: Code ── */}
@@ -134,7 +154,7 @@ export function CapabilitiesSection() {
             <div className="cap-terminal">
               <div className="cap-terminal__bar">
                 <i /><i /><i />
-                <span>Hero.tsx</span>
+                <span>Hero.tsx — buildhaus.studio</span>
               </div>
               <pre className="cap-terminal__body"><code>{CODE}</code></pre>
             </div>
