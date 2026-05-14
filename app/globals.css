@@ -2456,6 +2456,114 @@ textarea:focus-visible{
   padding:clamp(140px,18vw,220px) var(--pad-x) clamp(90px,12vw,150px);
   min-height:100vh;
 }
+
+/* ── Servicios page extras ── */
+.svc-hero-stats{
+  display:flex;
+  gap:0;
+  margin-top:36px;
+  border:1px solid var(--line);
+}
+.svc-hero-stat{
+  flex:1;
+  padding:18px 20px;
+  border-right:1px solid var(--line);
+}
+.svc-hero-stat:last-child{ border-right:0; }
+.svc-hero-stat__num{
+  display:block;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(22px,2.4vw,36px);
+  letter-spacing:-.05em;
+  color:var(--text);
+}
+.svc-hero-stat__label{
+  display:block;
+  margin-top:4px;
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--mute);
+}
+.services-jumper{
+  max-width:var(--container);
+  margin:0 auto clamp(48px,7vw,88px);
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.services-jumper a{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:11px 20px;
+  border:1px solid var(--line);
+  border-radius:100px;
+  color:var(--mute);
+  transition:color 300ms,border-color 300ms,background 300ms;
+}
+.services-jumper a:hover{
+  color:var(--text);
+  border-color:var(--accent);
+  background:rgba(29,100,242,.05);
+}
+.service-detail__header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.service-detail__signal{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+.service-detail__pricing{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:5px;
+  flex-shrink:0;
+  padding-top:6px;
+}
+.service-detail__price{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(16px,1.4vw,22px);
+  letter-spacing:-.03em;
+  color:var(--accent);
+}
+.service-detail__time{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--mute);
+}
+.svc-sprint{
+  max-width:var(--container);
+  margin:clamp(44px,6vw,80px) auto 0;
+}
+.page-cta__copy{
+  margin-top:18px;
+  margin-bottom:28px;
+  color:var(--text-soft);
+  font-size:clamp(15px,1.2vw,18px);
+  line-height:1.75;
+  max-width:52ch;
+}
+.page-cta__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
 .page-hero{
   max-width:var(--container);
   margin:0 auto clamp(70px,10vw,128px);
