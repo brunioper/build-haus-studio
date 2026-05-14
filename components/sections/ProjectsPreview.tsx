@@ -17,7 +17,7 @@ export function ProjectsPreview() {
         </div>
 
         <Reveal className="client-proof-strip" delay={0.08}>
-          <span>6 proyectos reales</span>
+          <span>Algunos de nuestros clientes</span>
           <span>Desarrollo · E-commerce · Soporte</span>
           <span>Uruguay + mercados externos</span>
         </Reveal>

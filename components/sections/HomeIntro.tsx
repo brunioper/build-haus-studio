@@ -6,7 +6,7 @@ import { useInView } from "motion/react";
 import { Reveal } from "@/components/ui/Reveal";
 
 const stats = [
-  { value: 6, suffix: "+", label: "Proyectos\nlanzados" },
+  { value: 20, suffix: "+", label: "Proyectos\nlanzados" },
   { value: 5, suffix: "", label: "Servicios\ndisponibles" },
   { value: 2, suffix: "", label: "Mercados\natendidos" },
   { value: 48, suffix: "h", label: "Propuesta\nen menos de" },

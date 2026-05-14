@@ -138,6 +138,10 @@ textarea:focus-visible{
   position:fixed; top:0; left:0; right:0; z-index:100;
   padding:24px 40px;
   display:flex; align-items:center; justify-content:space-between; gap:24px;
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line-soft);
 }
 .nav__brand{ font-family:var(--display); font-weight:700; font-size:14px; letter-spacing:-0.02em; }
 .nav__brand .a{ color:var(--accent); }
@@ -1102,14 +1106,17 @@ textarea:focus-visible{
 }
 
 /* ── Marquee ── */
-.marquee-section{ background:var(--bg); padding:90px 0; overflow:hidden; position:relative; }
+.marquee-section{ background:var(--bg); padding:72px 0; overflow:hidden; position:relative; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); }
 .marquee-section::before,.marquee-section::after{ content:""; position:absolute; top:0; bottom:0; width:160px; z-index:2; pointer-events:none; }
 .marquee-section::before{ left:0; background:linear-gradient(to right,var(--bg),transparent); }
 .marquee-section::after{ right:0; background:linear-gradient(to left,var(--bg),transparent); }
-.marquee-track{ display:flex; gap:80px; width:max-content; animation:marquee 50s linear infinite; }
-.marquee-track>div{ display:flex; align-items:center; gap:80px; padding-right:80px; }
-.marquee-track .name{ font-family:var(--display); font-weight:600; font-size:clamp(24px,2.6vw,40px); letter-spacing:-0.03em; white-space:nowrap; opacity:.45; }
-.marquee-track .dot{ width:5px; height:5px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+.marquee-track{ display:flex; gap:0; width:max-content; animation:marquee 40s linear infinite; }
+.marquee-track>div{ display:flex; align-items:center; gap:56px; padding-right:56px; }
+.marquee-track .name{ font-family:var(--display); font-weight:600; font-size:clamp(15px,1.4vw,20px); letter-spacing:-0.02em; white-space:nowrap; opacity:.7; }
+.marquee-track .dot{ width:4px; height:4px; border-radius:50%; background:var(--accent); flex-shrink:0; opacity:.5; }
+.marquee-client{ display:flex; align-items:center; gap:14px; flex-shrink:0; }
+.marquee-client img{ width:72px; height:48px; object-fit:cover; border-radius:6px; border:1px solid var(--line); opacity:.72; filter:grayscale(30%); transition:opacity 300ms,filter 300ms; }
+.marquee-client:hover img{ opacity:1; filter:grayscale(0%); }
 @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 
 /* ── Case Studies (horizontal) ── */

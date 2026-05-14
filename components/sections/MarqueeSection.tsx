@@ -1,23 +1,21 @@
-const items = [
-  "Hemistion",
-  "Landing Pages",
-  "Opertti Asociados",
-  "E-commerce",
-  "Growit UY",
-  "Sitios Empresariales",
-  "Cockpit UY",
-  "Apps & Plataformas",
-  "JUV Activewear",
-  "Diseño Premium",
-  "Zona Franca C.S.",
-  "Código a Medida",
+const clients = [
+  { name: "Hemistion",              img: "/assets/clients/hemistion.jpg" },
+  { name: "Opertti Asociados",      img: "/assets/clients/opertti-asociados.jpg" },
+  { name: "Growit UY",              img: "/assets/clients/growituy.jpg" },
+  { name: "Cockpit UY",             img: "/assets/clients/cockpit-uy.jpg" },
+  { name: "Zona Franca C.S.",       img: "/assets/clients/zona-franca-colonia-suiza.jpg" },
+  { name: "JUV Activewear",         img: "/assets/clients/juv-activewear.jpg" },
 ];
 
 function MarqueeRow() {
+  const items = [...clients, ...clients];
   return (
     <div>
-      {items.flatMap((name, i) => [
-        <span className="name" key={`name-${i}`}>{name}</span>,
+      {items.flatMap((c, i) => [
+        <span className="marquee-client" key={`client-${i}`}>
+          <img src={c.img} alt={c.name} width={56} height={40} loading="lazy" />
+          <span className="name">{c.name}</span>
+        </span>,
         <span className="dot" key={`dot-${i}`} aria-hidden="true" />,
       ])}
     </div>
