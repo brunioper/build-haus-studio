@@ -7,20 +7,20 @@ export function FinalCTA() {
       <div className="contact-preview__inner">
         <div>
           <Reveal as="h2" className="contact-preview__head">
-            ¿Tu web actual está trabajando lo suficiente?
+            Tu próxima web empieza con una conversación.
           </Reveal>
           <Reveal as="p" className="contact-preview__copy" delay={0.08}>
-            Si necesitás una landing, un e-commerce, un sitio empresarial, una app o soporte para tu tienda, contanos qué querés construir.
+            Contanos qué necesitás construir, mejorar o lanzar. Te respondemos con el próximo paso más claro, sin compromisos ni presupuestos inventados.
           </Reveal>
         </div>
         <Reveal className="contact-preview__actions" delay={0.1}>
           <div className="contact-preview__signal" aria-hidden="true">
-            <span>Brief</span>
-            <span>Propuesta</span>
-            <span>Sprint</span>
+            <span>Brief gratuito</span>
+            <span>Propuesta en 48 hs</span>
+            <span>Lanzamiento</span>
           </div>
           <Link className="contact-preview__button contact-preview__button--primary" href="/contacto" data-hover>
-            Contactanos →
+            Hablemos →
           </Link>
           <Link className="contact-preview__button" href="/servicios" data-hover>
             Ver servicios

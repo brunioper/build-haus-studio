@@ -47,7 +47,7 @@ export default function ProcesoPage() {
         <ul>
           <li>Landings, webs empresariales y rediseños enfocados.</li>
           <li>Tiempo estimado: 10–15 días hábiles según alcance.</li>
-          <li>Desde USD [completar precio].</li>
+          <li>Inversión según alcance y objetivos del proyecto.</li>
           <li>2 rondas de ajustes y soporte de lanzamiento.</li>
         </ul>
         <Link className="home-cta" href="/contacto" data-hover>

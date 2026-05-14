@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
-import { projects } from "@/lib/data";
+import { clientProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Proyectos seleccionados — Build Haus Studio",
@@ -23,16 +23,19 @@ export default function ProyectosPage() {
       </section>
 
       <section className="project-list">
-        {projects.map((project, index) => (
-          <Reveal as="article" className="project-detail-card" key={project.title} delay={index * 0.05} data-hover>
+        {clientProjects.map((project, index) => (
+          <Reveal as="article" className="project-detail-card" key={project.name} delay={index * 0.05} data-hover>
             <div className="project-detail-card__blueprint" aria-hidden="true">
               <span />
               <span />
               <span />
             </div>
+            <a href={project.url} target="_blank" rel="noreferrer" className="project-detail-card__screen" data-hover>
+              <img src={project.image} alt={`Captura del sitio web de ${project.name}`} loading="lazy" />
+            </a>
             <div className="project-detail-card__head">
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <h2>{project.title}</h2>
+              <h2>{project.name}</h2>
             </div>
             <dl>
               <dt>Servicio realizado</dt>
@@ -41,8 +44,6 @@ export default function ProyectosPage() {
               <dd>{project.type}</dd>
               <dt>Qué hicimos</dt>
               <dd>{project.did}</dd>
-              <dt>Problema resuelto</dt>
-              <dd>{project.problem}</dd>
               <dt>Objetivo del trabajo</dt>
               <dd>{project.objective}</dd>
               <dt>Entregable</dt>

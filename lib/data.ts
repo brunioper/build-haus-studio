@@ -99,6 +99,69 @@ export const projects = [
   },
 ];
 
+export const clientProjects = [
+  {
+    name: "Hemistion",
+    url: "https://hemistion.com/",
+    service: "Desarrollo",
+    type: "Sitio web corporativo",
+    image: "/assets/clients/hemistion.jpg",
+    did: "Desarrollo del sitio web y puesta en producción de la experiencia.",
+    objective: "Presentar una operación global con una web clara, navegable y sólida.",
+    deliverable: "Sitio web desarrollado.",
+  },
+  {
+    name: "Opertti Asociados",
+    url: "https://operttiasociados.net/",
+    service: "Desarrollo",
+    type: "Sitio web profesional",
+    image: "/assets/clients/opertti-asociados.jpg",
+    did: "Desarrollo del sitio web institucional.",
+    objective: "Ordenar la presencia digital de una firma profesional y facilitar el contacto.",
+    deliverable: "Sitio web desarrollado.",
+  },
+  {
+    name: "Growit UY",
+    url: "https://growituy.com/",
+    service: "E-commerce",
+    type: "Tienda online",
+    image: "/assets/clients/growituy.jpg",
+    did: "Construcción y ajustes de experiencia e-commerce.",
+    objective: "Mostrar productos, ordenar categorías y sostener una experiencia de compra clara.",
+    deliverable: "E-commerce publicado.",
+  },
+  {
+    name: "Cockpit UY",
+    url: "https://cockpituy.com/",
+    service: "E-commerce",
+    type: "Tienda online",
+    image: "/assets/clients/cockpit-uy.jpg",
+    did: "Desarrollo e implementación de experiencia e-commerce.",
+    objective: "Dar soporte digital a una tienda con navegación de productos y camino de compra.",
+    deliverable: "E-commerce publicado.",
+  },
+  {
+    name: "Zona Franca Colonia Suiza",
+    url: "https://www.zonafrancacoloniasuiza.com/",
+    service: "Sitio empresarial",
+    type: "Sitio empresarial",
+    image: "/assets/clients/zona-franca-colonia-suiza.jpg",
+    did: "Desarrollo de sitio empresarial para comunicar ubicación, servicios y propuesta.",
+    objective: "Construir una presencia institucional confiable para un proyecto empresarial.",
+    deliverable: "Sitio web empresarial.",
+  },
+  {
+    name: "JUV Activewear",
+    url: "https://www.juv-activewear.co.il/",
+    service: "Soporte e-commerce",
+    type: "Soporte e-commerce",
+    image: "/assets/clients/juv-activewear.jpg",
+    did: "Soporte y mejoras sobre experiencia de tienda online.",
+    objective: "Acompañar la operación de e-commerce con ajustes técnicos y de experiencia.",
+    deliverable: "Soporte e-commerce.",
+  },
+];
+
 export const processSteps = [
   {
     title: "Descubrimiento",

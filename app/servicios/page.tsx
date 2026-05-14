@@ -60,6 +60,16 @@ export default function ServiciosPage() {
           </Reveal>
         ))}
       </section>
+
+      <Reveal className="page-cta">
+        <h2>¿Cuánto cuesta? Depende del alcance.</h2>
+        <p style={{ marginTop: "18px", marginBottom: "28px", color: "var(--text-soft)", fontSize: "clamp(15px,1.2vw,18px)", lineHeight: "1.75", maxWidth: "52ch" }}>
+          No publicamos precios fijos porque cada proyecto es diferente. Contanos qué necesitás y te enviamos una propuesta con alcance, tiempo y costo real.
+        </p>
+        <Link href="/contacto" className="contact-preview__button contact-preview__button--primary" data-hover>
+          Consultar inversión →
+        </Link>
+      </Reveal>
     </main>
   );
 }
