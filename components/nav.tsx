@@ -52,6 +52,18 @@ export function Nav() {
     };
   }, [pathname]);
 
+  function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (pathname !== "/") return;
+    e.preventDefault();
+    const lenis = (window as Window & { __bhLenis?: { scrollTo: (target: number, opts: object) => void } }).__bhLenis;
+    if (lenis?.scrollTo) {
+      lenis.scrollTo(0, { duration: 1.8 });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    setOpen(false);
+  }
+
   function toggleTheme() {
     const root = document.documentElement;
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
@@ -63,7 +75,7 @@ export function Nav() {
 
   return (
     <header className="nav site-nav" role="banner">
-      <Link className="nav__brand" href="/" data-hover onClick={() => setOpen(false)}>
+      <Link className="nav__brand" href="/" data-hover onClick={handleHomeClick}>
         Build Haus <span className="a">Studio</span>
       </Link>
 
@@ -74,6 +86,7 @@ export function Nav() {
             data-hover
             href={item.href}
             aria-current={pathname === item.href ? "page" : undefined}
+            onClick={item.href === "/" ? handleHomeClick : undefined}
           >
             {item.label}
           </Link>
@@ -110,7 +123,7 @@ export function Nav() {
       <div className="mobile-menu" id="mobile-menu" data-open={open} aria-hidden={!open}>
         <nav aria-label="Navegación móvil">
           {navItems.map((item, index) => (
-            <Link key={item.href} href={item.href} onClick={() => setOpen(false)} data-hover>
+            <Link key={item.href} href={item.href} onClick={item.href === "/" ? handleHomeClick : () => setOpen(false)} data-hover>
               <span>{String(index + 1).padStart(2, "0")}</span>
               {item.label}
             </Link>

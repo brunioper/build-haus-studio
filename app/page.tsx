@@ -1,6 +1,7 @@
 import { BlueprintHero } from "@/components/hero/BlueprintHero";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { HomeIntro } from "@/components/sections/HomeIntro";
+import { MarqueeSection } from "@/components/sections/MarqueeSection";
 import { PricingTeaser } from "@/components/sections/PricingTeaser";
 import { ProcessPreview } from "@/components/sections/ProcessPreview";
 import { ProjectsPreview } from "@/components/sections/ProjectsPreview";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <main className="home-main" id="home-main">
         <HomeIntro />
         <ServicesPreview />
+        <MarqueeSection />
         <ProjectsPreview />
         <ProcessPreview />
         <PricingTeaser />

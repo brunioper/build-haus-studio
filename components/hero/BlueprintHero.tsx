@@ -9,6 +9,8 @@ declare global {
   interface Window {
     __buildHausHeroInitialized?: boolean;
     __bhCursorInitialized?: boolean;
+    __bhLenis?: unknown;
+    __bhHeroCleanup?: () => void;
     gsap?: unknown;
     ScrollTrigger?: unknown;
     anime?: unknown;
@@ -36,6 +38,10 @@ export function BlueprintHero() {
     run();
     return () => {
       cancelled = true;
+      if (typeof window.__bhHeroCleanup === "function") {
+        window.__bhHeroCleanup();
+      }
+      window.__buildHausHeroInitialized = false;
     };
   }, []);
 

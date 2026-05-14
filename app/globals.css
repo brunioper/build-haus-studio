@@ -1863,10 +1863,10 @@ textarea:focus-visible{
 .contact-preview__head{
   font-family:var(--display);
   font-weight:700;
-  font-size:clamp(48px,7vw,120px);
-  line-height:.94;
-  letter-spacing:-.06em;
-  max-width:12ch;
+  font-size:clamp(36px,4.4vw,76px);
+  line-height:.96;
+  letter-spacing:-.055em;
+  max-width:16ch;
 }
 .contact-preview__copy{
   margin-top:30px;
