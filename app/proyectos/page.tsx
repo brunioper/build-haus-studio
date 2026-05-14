@@ -1,0 +1,63 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
+import { projects } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Proyectos seleccionados — Build Haus Studio",
+  description:
+    "Proyectos seleccionados de diseño y desarrollo web: servicios realizados, problemas resueltos y entregables sin métricas inventadas.",
+};
+
+export default function ProyectosPage() {
+  return (
+    <main className="page-shell">
+      <section className="page-hero">
+        <Reveal>
+          <div className="home-label">Proyectos</div>
+          <h1>Proyectos seleccionados, resultados reales.</h1>
+        </Reveal>
+        <Reveal as="p" delay={0.08}>
+          Mostramos qué servicio se realizó, qué problema se resolvió y qué entregable quedó construido. Sin porcentajes inventados, sin logos falsos, sin testimonios fabricados.
+        </Reveal>
+      </section>
+
+      <section className="project-list">
+        {projects.map((project, index) => (
+          <Reveal as="article" className="project-detail-card" key={project.title} delay={index * 0.05} data-hover>
+            <div className="project-detail-card__blueprint" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="project-detail-card__head">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h2>{project.title}</h2>
+            </div>
+            <dl>
+              <dt>Servicio realizado</dt>
+              <dd>{project.service}</dd>
+              <dt>Tipo de proyecto</dt>
+              <dd>{project.type}</dd>
+              <dt>Qué hicimos</dt>
+              <dd>{project.did}</dd>
+              <dt>Problema resuelto</dt>
+              <dd>{project.problem}</dd>
+              <dt>Objetivo del trabajo</dt>
+              <dd>{project.objective}</dd>
+              <dt>Entregable</dt>
+              <dd>{project.deliverable}</dd>
+            </dl>
+          </Reveal>
+        ))}
+      </section>
+
+      <Reveal className="page-cta">
+        <h2>¿Querés construir algo con un objetivo claro?</h2>
+        <Link href="/contacto" className="contact-preview__button contact-preview__button--primary" data-hover>
+          Contactanos →
+        </Link>
+      </Reveal>
+    </main>
+  );
+}
