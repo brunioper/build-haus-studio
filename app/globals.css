@@ -3221,3 +3221,9 @@ textarea:focus-visible{
   .pricing-card{border-right:0;border-bottom:1px solid var(--line);min-height:0;}
   .pricing-card:last-child{border-bottom:0;}
 }
+
+/* ── Mobile: prevent skipping content after hero animation ── */
+@media(hover:none){
+  html{ scroll-snap-type: y proximity; }
+  #home-main{ scroll-snap-align: start; scroll-snap-stop: always; }
+}
