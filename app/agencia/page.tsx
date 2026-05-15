@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { agenciaMetadata, breadcrumbSchema, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Agencia — Build Haus Studio",
-  description:
-    "Build Haus Studio es un estudio web basado en Montevideo. Diseño, desarrollo y estrategia digital para empresas que necesitan convertir mejor en Uruguay y Argentina.",
+  ...agenciaMetadata,
+  openGraph: {
+    title: agenciaMetadata.title as string,
+    description: agenciaMetadata.description as string,
+    url: `${siteUrl}/agencia`,
+    locale: "es_UY",
+    type: "website",
+  },
 };
+
+const breadcrumb = breadcrumbSchema([
+  { name: "Inicio", url: siteUrl },
+  { name: "Agencia", url: `${siteUrl}/agencia` },
+]);
 
 export default function AgenciaPage() {
   return (
     <main className="page-shell">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <section className="page-hero">
         <Reveal>
           <div className="home-label">Agencia</div>

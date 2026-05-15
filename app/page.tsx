@@ -1,3 +1,18 @@
+import type { Metadata } from "next";
+import { homeMetadata, siteUrl } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  ...homeMetadata,
+  openGraph: {
+    title: homeMetadata.title as string,
+    description: homeMetadata.description as string,
+    url: siteUrl,
+    locale: "es_UY",
+    type: "website",
+    siteName: "Build Haus Studio",
+  },
+};
+
 import { BlueprintHero } from "@/components/hero/BlueprintHero";
 import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";

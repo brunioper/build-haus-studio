@@ -2,16 +2,28 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { clientProjects } from "@/lib/data";
+import { breadcrumbSchema, proyectosMetadata, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Proyectos seleccionados — Build Haus Studio",
-  description:
-    "Proyectos seleccionados de diseño y desarrollo web: servicios realizados, problemas resueltos y entregables sin métricas inventadas.",
+  ...proyectosMetadata,
+  openGraph: {
+    title: proyectosMetadata.title as string,
+    description: proyectosMetadata.description as string,
+    url: `${siteUrl}/proyectos`,
+    locale: "es_UY",
+    type: "website",
+  },
 };
+
+const breadcrumb = breadcrumbSchema([
+  { name: "Inicio", url: siteUrl },
+  { name: "Proyectos", url: `${siteUrl}/proyectos` },
+]);
 
 export default function ProyectosPage() {
   return (
     <main className="page-shell">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <section className="page-hero">
         <Reveal>
           <div className="home-label">Proyectos</div>

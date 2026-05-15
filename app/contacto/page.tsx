@@ -1,16 +1,46 @@
 import type { Metadata } from "next";
 import { bookingHref, contactEmail, whatsappHref } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
+import { breadcrumbSchema, contactoMetadata, siteEmail, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contacto — Build Haus Studio",
-  description:
-    "Contactá a Build Haus Studio para landing pages, e-commerce, sitios web empresariales, apps o soporte para tiendas online.",
+  ...contactoMetadata,
+  openGraph: {
+    title: contactoMetadata.title as string,
+    description: contactoMetadata.description as string,
+    url: `${siteUrl}/contacto`,
+    locale: "es_UY",
+    type: "website",
+  },
 };
+
+const jsonLd = [
+  breadcrumbSchema([
+    { name: "Inicio", url: siteUrl },
+    { name: "Contacto", url: `${siteUrl}/contacto` },
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contacto — Build Haus Studio",
+    url: `${siteUrl}/contacto`,
+    description: "Contactá a Build Haus Studio para diseño web en Uruguay o Argentina.",
+    mainEntity: {
+      "@type": "Organization",
+      name: "Build Haus Studio",
+      email: siteEmail,
+      url: siteUrl,
+      areaServed: ["Uruguay", "Argentina"],
+    },
+  },
+];
 
 export default function ContactoPage() {
   return (
     <main className="page-shell contact-page">
+      {jsonLd.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
       <section className="page-hero">
         <Reveal>
           <div className="home-label">Contacto</div>

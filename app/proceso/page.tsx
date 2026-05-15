@@ -2,16 +2,33 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { processSteps } from "@/lib/data";
+import { breadcrumbSchema, procesoMetadata, procesoSchema, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Proceso — Build Haus Studio",
-  description:
-    "Proceso de estrategia, estructura, diseño, desarrollo, lanzamiento y mejora continua para sitios web en Uruguay y Argentina.",
+  ...procesoMetadata,
+  openGraph: {
+    title: procesoMetadata.title as string,
+    description: procesoMetadata.description as string,
+    url: `${siteUrl}/proceso`,
+    locale: "es_UY",
+    type: "website",
+  },
 };
+
+const jsonLd = [
+  procesoSchema,
+  breadcrumbSchema([
+    { name: "Inicio", url: siteUrl },
+    { name: "Proceso", url: `${siteUrl}/proceso` },
+  ]),
+];
 
 export default function ProcesoPage() {
   return (
     <main className="page-shell">
+      {jsonLd.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
       <section className="page-hero">
         <Reveal>
           <div className="home-label">Proceso</div>

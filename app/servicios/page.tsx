@@ -2,12 +2,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/lib/data";
+import { breadcrumbSchema, serviciosMetadata, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Servicios — Build Haus Studio",
-  description:
-    "Landing pages, e-commerce de alta conversión, sitios web para empresas, desarrollo de apps y soporte e-commerce para marcas en Uruguay y Argentina.",
+  ...serviciosMetadata,
+  openGraph: {
+    title: serviciosMetadata.title as string,
+    description: serviciosMetadata.description as string,
+    url: `${siteUrl}/servicios`,
+    locale: "es_UY",
+    type: "website",
+  },
 };
+
+const jsonLd = [
+  breadcrumbSchema([
+    { name: "Inicio", url: siteUrl },
+    { name: "Servicios", url: `${siteUrl}/servicios` },
+  ]),
+];
 
 const serviceMeta: Record<string, { price: string; time: string; signal: string }> = {
   "Landing Pages":                  { price: "desde $7.900 UYU", time: "7 días hábiles", signal: "Conversión" },
@@ -24,6 +37,9 @@ function slug(title: string) {
 export default function ServiciosPage() {
   return (
     <main className="page-shell">
+      {jsonLd.map((schema, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      ))}
 
       {/* ── Hero ── */}
       <section className="page-hero">

@@ -4,7 +4,7 @@ import "./globals.css";
 import { AppChrome } from "@/components/app-chrome";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
-import { homeMetadata, organizationSchema } from "@/lib/seo";
+import { homeMetadata, organizationSchema, siteUrl, websiteSchema } from "@/lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -26,14 +26,25 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   ...homeMetadata,
-  metadataBase: new URL("https://buildhausstudio.com"),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: homeMetadata.title as string,
     description: homeMetadata.description as string,
     type: "website",
     locale: "es_UY",
-    url: "https://buildhausstudio.com",
+    url: siteUrl,
     siteName: "Build Haus Studio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homeMetadata.title as string,
+    description: homeMetadata.description as string,
+    site: "@buildhausstudio",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 };
 
@@ -45,10 +56,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Nav />
         {children}
         <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </body>
     </html>
   );
