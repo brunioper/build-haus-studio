@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contactEmail, navItems, whatsappHref } from "@/lib/data";
+import { bookingHref, contactEmail, instagramHref, navItems } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Footer() {
@@ -21,10 +21,9 @@ export function Footer() {
       <div className="site-footer__bottom">
         <div>© 2026 Build Haus Studio — Webs que convierten visitas en clientes.</div>
         <div className="links">
-          <a data-hover href="#AGREGAR_INSTAGRAM">Instagram</a>
-          <a data-hover href="#AGREGAR_LINKEDIN">LinkedIn</a>
+          <a data-hover href={instagramHref} target="_blank" rel="noreferrer">Instagram</a>
+          <a data-hover href={bookingHref} target="_blank" rel="noreferrer">Calendly</a>
           <a data-hover href={`mailto:${contactEmail}`}>Email</a>
-          <a data-hover href={whatsappHref}>WhatsApp</a>
         </div>
       </div>
     </Reveal>

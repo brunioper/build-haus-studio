@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { bookingHref, contactEmail, whatsappHref } from "@/lib/data";
+import { bookingHref, contactEmail, instagramHref } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
 import { breadcrumbSchema, contactoMetadata, siteEmail, siteUrl } from "@/lib/seo";
+import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
   ...contactoMetadata,
@@ -54,56 +55,11 @@ export default function ContactoPage() {
       <section className="contact-layout">
         <Reveal className="contact-options">
           <a href={`mailto:${contactEmail}`} data-hover>Email — {contactEmail}</a>
-          <a href={whatsappHref} data-hover>Contactanos por WhatsApp</a>
-          <a href={bookingHref} data-hover>Agendar consulta</a>
+          <a href={instagramHref} target="_blank" rel="noreferrer" data-hover>Instagram — @buildhaus.studio</a>
+          <a href={bookingHref} target="_blank" rel="noreferrer" data-hover>Agendar consulta →</a>
         </Reveal>
 
-        <Reveal as="form" className="contact-form" delay={0.08}>
-          <label>
-            Nombre
-            <input name="nombre" type="text" autoComplete="name" required />
-          </label>
-          <label>
-            Empresa
-            <input name="empresa" type="text" autoComplete="organization" />
-          </label>
-          <label>
-            Email
-            <input name="email" type="email" autoComplete="email" required />
-          </label>
-          <label>
-            Web actual
-            <input name="web" type="url" inputMode="url" />
-          </label>
-          <label>
-            ¿Qué necesitás?
-            <select name="servicio" defaultValue="">
-              <option value="" disabled>Seleccionar</option>
-              <option>Landing page</option>
-              <option>Sitio web empresarial</option>
-              <option>Shopify / e-commerce</option>
-              <option>Rediseño web</option>
-              <option>Auditoría UX / conversión</option>
-              <option>No estoy seguro todavía</option>
-            </select>
-          </label>
-          <label>
-            País
-            <select name="pais" defaultValue="">
-              <option value="" disabled>Seleccionar</option>
-              <option>Uruguay</option>
-              <option>Argentina</option>
-              <option>Otro</option>
-            </select>
-          </label>
-          <label className="contact-form__wide">
-            Mensaje
-            <textarea name="mensaje" rows={5} required />
-          </label>
-          <button className="contact-preview__button contact-preview__button--primary" type="submit" data-hover>
-            Enviar solicitud →
-          </button>
-        </Reveal>
+        <ContactForm />
       </section>
     </main>
   );

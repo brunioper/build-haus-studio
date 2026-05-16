@@ -190,5 +190,5 @@ export const processSteps = [
 ];
 
 export const contactEmail = "hello@buildhaus.studio";
-export const whatsappHref = "https://wa.me/AGREGAR_NUMERO_DE_WHATSAPP";
-export const bookingHref = "#AGREGAR_LINK_DE_BOOKING";
+export const bookingHref = "https://calendly.com/bruno-opertti/30min";
+export const instagramHref = "https://www.instagram.com/buildhaus.studio/";
