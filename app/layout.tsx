@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" data-theme="light" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable}`}>
+    <html lang="es" data-theme="dark" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable}`}>
       <body>
         <AppChrome />
         <Nav />
