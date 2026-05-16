@@ -35,7 +35,7 @@ export default function ProyectosPage() {
       </section>
 
       <section className="project-list">
-        {clientProjects.map((project, index) => (
+        {clientProjects.filter((p) => !p.hidden).map((project, index) => (
           <Reveal as="article" className="project-detail-card" key={project.name} delay={index * 0.05} data-hover>
             <div className="project-detail-card__blueprint" aria-hidden="true">
               <span />

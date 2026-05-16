@@ -23,7 +23,7 @@ export function ProjectsPreview() {
         </Reveal>
 
         <div className="client-proof-grid">
-          {clientProjects.map((project, index) => (
+          {clientProjects.filter((p) => !p.hidden).map((project, index) => (
             <Reveal as="article" className="client-card" data-hover key={project.name} delay={index * 0.04}>
               <a href={project.url} target="_blank" rel="noreferrer" className="client-card__screen" aria-label={`Visitar ${project.name}`} data-hover>
                 <img src={project.image} alt={`Captura del sitio web de ${project.name}`} loading="lazy" />

@@ -159,6 +159,7 @@ export const clientProjects = [
     did: "Soporte y mejoras sobre experiencia de tienda online.",
     objective: "Acompañar la operación de e-commerce con ajustes técnicos y de experiencia.",
     deliverable: "Soporte e-commerce.",
+    hidden: true,
   },
 ];
 
