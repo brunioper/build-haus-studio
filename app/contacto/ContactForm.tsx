@@ -22,7 +22,7 @@ export function ContactForm() {
   return (
     <Reveal as="form" className="contact-form" action={action} delay={0.08}>
       <label>
-        Nombre
+        Nombre *
         <input name="nombre" type="text" autoComplete="name" required />
       </label>
       <label>
@@ -30,17 +30,17 @@ export function ContactForm() {
         <input name="empresa" type="text" autoComplete="organization" />
       </label>
       <label>
-        Email
+        Email *
         <input name="email" type="email" autoComplete="email" required />
       </label>
       <label>
         Web actual
-        <input name="web" type="url" inputMode="url" />
+        <input name="web" type="text" placeholder="www.tusitio.com" />
       </label>
       <label>
         ¿Qué necesitás?
         <select name="servicio" defaultValue="">
-          <option value="" disabled>Seleccionar</option>
+          <option value="">Seleccionar</option>
           <option>Landing page</option>
           <option>Sitio web empresarial</option>
           <option>Shopify / e-commerce</option>
@@ -52,7 +52,7 @@ export function ContactForm() {
       <label>
         País
         <select name="pais" defaultValue="">
-          <option value="" disabled>Seleccionar</option>
+          <option value="">Seleccionar</option>
           <option>Uruguay</option>
           <option>Argentina</option>
           <option>Otro</option>
@@ -60,7 +60,7 @@ export function ContactForm() {
       </label>
       <label className="contact-form__wide">
         Mensaje
-        <textarea name="mensaje" rows={5} required />
+        <textarea name="mensaje" rows={4} placeholder="Contanos brevemente qué necesitás..." />
       </label>
       {state.error && (
         <p className="contact-form__error">{state.error}</p>
