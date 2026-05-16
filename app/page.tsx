@@ -22,6 +22,7 @@ import { PricingTeaser } from "@/components/sections/PricingTeaser";
 import { ProcessPreview } from "@/components/sections/ProcessPreview";
 import { ProjectsPreview } from "@/components/sections/ProjectsPreview";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
+import { BookingCTA } from "@/components/sections/BookingCTA";
 
 export default function HomePage() {
   return (
@@ -30,6 +31,7 @@ export default function HomePage() {
       <main className="home-main" id="home-main">
         <HomeIntro />
         <ServicesPreview />
+        <BookingCTA />
         <CapabilitiesSection />
         <MarqueeSection />
         <ProjectsPreview />
