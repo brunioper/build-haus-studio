@@ -43,7 +43,7 @@ export async function sendContact(_prev: ContactFormState, formData: FormData): 
   try {
     await transport.sendMail({
       from: `"Build Haus Studio" <hello@buildhaus.studio>`,
-      to: "bruno.opertti@gmail.com",
+      to: "hello@buildhaus.studio",
       replyTo: email,
       subject: `Nueva consulta de ${nombre}${empresa ? ` — ${empresa}` : ""}`,
       html: `
