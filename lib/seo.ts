@@ -21,82 +21,92 @@ const coreKeywords = [
   "tienda online Uruguay",
   "sitios web empresariales Uruguay",
   "Shopify Uruguay",
+  "agencia diseño web Montevideo",
+  "presupuesto página web Uruguay",
+  "cuánto cuesta una página web Uruguay",
+  "diseño web profesional Uruguay",
+  "web para empresas Uruguay",
 ];
 
 /* ── Per-page metadata ────────────────────────────────────────────── */
 export const homeMetadata: Metadata = {
-  title: "Diseño y Desarrollo Web en Uruguay | Build Haus Studio",
+  title: "Diseño Web Uruguay | Páginas, E-commerce y Apps | Build Haus Studio",
   description:
-    "Agencia de diseño y desarrollo web en Montevideo, Uruguay. Landing pages, e-commerce, sitios web para empresas y apps. Lanzamos en 7 días. Clientes en Uruguay y Argentina.",
+    "Agencia de diseño y desarrollo web en Montevideo, Uruguay. Landing pages desde $7.900 UYU, e-commerce Shopify y sitios empresariales. Lanzamos en 7 días. Trabajo con empresas en Uruguay y Argentina.",
   keywords: coreKeywords,
   alternates: { canonical: siteUrl },
 };
 
 export const serviciosMetadata: Metadata = {
-  title: "Servicios de Diseño Web en Uruguay | Build Haus Studio",
+  title: "Servicios de Diseño Web en Uruguay — Landing Pages, E-commerce, Sitios Empresariales",
   description:
-    "Landing pages desde $7.900 UYU, e-commerce Shopify, sitios web empresariales, apps y soporte continuo para marcas en Uruguay y Argentina.",
+    "Landing pages desde $7.900 UYU, tiendas Shopify, sitios web para empresas y apps a medida. Presupuesto sin compromiso. Build Haus Studio — Montevideo, Uruguay.",
   keywords: [
     ...coreKeywords,
     "landing pages Montevideo",
     "e-commerce Shopify Uruguay",
     "página web para empresa Uruguay",
+    "cuánto cuesta landing page Uruguay",
   ],
   alternates: { canonical: `${siteUrl}/servicios` },
 };
 
 export const agenciaMetadata: Metadata = {
-  title: "Agencia Web en Montevideo, Uruguay | Build Haus Studio",
+  title: "Agencia de Diseño Web en Montevideo, Uruguay | Build Haus Studio",
   description:
-    "Estudio de diseño web en Montevideo. Estrategia, diseño premium y código limpio para empresas en Uruguay y Argentina que necesitan convertir visitas en clientes.",
+    "Somos un estudio de diseño y desarrollo web en Montevideo. Estrategia, diseño premium y código limpio para empresas en Uruguay y Argentina que quieren convertir visitas en clientes.",
   keywords: [
     ...coreKeywords,
-    "agencia diseño web Montevideo",
     "estudio web Uruguay",
     "agencia digital Montevideo",
+    "quiénes somos agencia web Uruguay",
   ],
   alternates: { canonical: `${siteUrl}/agencia` },
 };
 
 export const procesoMetadata: Metadata = {
-  title: "Proceso de Diseño Web en 7 Días | Build Haus Studio Uruguay",
+  title: "Proceso de Diseño Web en 7 Días Hábiles | Build Haus Studio Uruguay",
   description:
-    "De idea a sitio web publicado en 7 días hábiles. Estrategia, diseño, desarrollo y lanzamiento para empresas en Uruguay y Argentina.",
+    "De la idea al sitio web publicado en 7 días hábiles. Estrategia, diseño, desarrollo y lanzamiento para empresas en Uruguay y Argentina. Sin vueltas.",
   keywords: [
     ...coreKeywords,
     "website sprint Uruguay",
     "lanzar página web rápido Uruguay",
     "proceso diseño web Uruguay",
+    "cuánto tarda hacer una web Uruguay",
   ],
   alternates: { canonical: `${siteUrl}/proceso` },
 };
 
 export const proyectosMetadata: Metadata = {
-  title: "Proyectos de Diseño Web en Uruguay | Build Haus Studio",
+  title: "Portfolio de Diseño Web en Uruguay | Proyectos Reales | Build Haus Studio",
   description:
-    "Portfolio de sitios web, e-commerce y landing pages para empresas en Uruguay y Argentina. Hemistion, Growit UY, Cockpit UY, Zona Franca Colonia Suiza.",
+    "Proyectos de diseño web, e-commerce y landing pages para empresas en Uruguay y Argentina. Hemistion, Growit UY, Cockpit UY, Zona Franca Colonia Suiza y más.",
   keywords: [
     ...coreKeywords,
     "portfolio web Uruguay",
     "proyectos diseño web Uruguay",
     "ejemplos páginas web Uruguay",
+    "casos de éxito diseño web Uruguay",
   ],
   alternates: { canonical: `${siteUrl}/proyectos` },
 };
 
 export const contactoMetadata: Metadata = {
-  title: "Contacto — Diseño Web Uruguay | Build Haus Studio",
+  title: "Presupuesto Diseño Web Uruguay Sin Compromiso | Build Haus Studio",
   description:
-    "Contactá a Build Haus Studio para diseño web en Uruguay o Argentina. Brief gratuito, propuesta en 48 hs y sin compromiso. Respondemos en menos de 24 hs.",
+    "Pedí tu presupuesto de diseño web en Uruguay sin compromiso. Respondemos en menos de 24 horas. Landing pages, e-commerce, sitios empresariales y apps en Montevideo.",
   keywords: [
     ...coreKeywords,
     "contratar diseño web Uruguay",
     "presupuesto página web Uruguay",
+    "cotizar página web Uruguay",
+    "brief gratuito diseño web Uruguay",
   ],
   alternates: { canonical: `${siteUrl}/contacto` },
 };
 
-/* ── JSON-LD: Organization + LocalBusiness ───────────────────────── */
+/* ── JSON-LD: Organization ───────────────────────────────────────── */
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "ProfessionalService"],
@@ -104,6 +114,8 @@ export const organizationSchema = {
   name: siteName,
   url: siteUrl,
   email: siteEmail,
+  telephone: "+59893806176",
+  foundingDate: "2024",
   description:
     "Agencia de diseño y desarrollo web en Montevideo, Uruguay. Creamos landing pages, e-commerce, sitios web empresariales y apps para marcas en Uruguay y Argentina.",
   address: {
@@ -121,6 +133,9 @@ export const organizationSchema = {
     { "@type": "Country", name: "Uruguay" },
     { "@type": "Country", name: "Argentina" },
   ],
+  sameAs: [
+    "https://www.instagram.com/buildhaus.studio/",
+  ],
   knowsLanguage: ["es"],
   priceRange: "$$",
   hasOfferCatalog: {
@@ -132,7 +147,7 @@ export const organizationSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Landing Pages",
-          description: "Páginas de alta conversión para campañas, lanzamientos y captación de leads.",
+          description: "Páginas de alta conversión para campañas, lanzamientos y captación de leads en Uruguay y Argentina.",
           url: `${siteUrl}/servicios#landing-pages`,
           areaServed: ["Uruguay", "Argentina"],
         },
@@ -142,7 +157,7 @@ export const organizationSchema = {
         itemOffered: {
           "@type": "Service",
           name: "E-commerce de Alta Conversión",
-          description: "Tiendas online Shopify con foco en ventas y experiencia mobile.",
+          description: "Tiendas online Shopify con foco en ventas y experiencia mobile para Uruguay y Argentina.",
           url: `${siteUrl}/servicios#e-commerce-de-alta-conversin`,
           areaServed: ["Uruguay", "Argentina"],
         },
@@ -162,7 +177,7 @@ export const organizationSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Desarrollo de Apps",
-          description: "Aplicaciones web y plataformas digitales a medida.",
+          description: "Aplicaciones web y plataformas digitales a medida para negocios en Uruguay.",
           url: `${siteUrl}/servicios#desarrollo-de-apps`,
           areaServed: ["Uruguay", "Argentina"],
         },
@@ -171,7 +186,7 @@ export const organizationSchema = {
   },
 };
 
-/* ── JSON-LD: WebSite ────────────────────────────────────────────── */
+/* ── JSON-LD: WebSite with SearchAction ─────────────────────────── */
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -182,12 +197,68 @@ export const websiteSchema = {
   publisher: { "@id": `${siteUrl}/#organization` },
 };
 
+/* ── JSON-LD: FAQ (home page) ────────────────────────────────────── */
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Cuánto cuesta hacer una página web en Uruguay?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En Build Haus Studio las landing pages empiezan desde $7.900 UYU. Los sitios web empresariales y e-commerce se presupuestan según el alcance de cada proyecto. Contactanos para recibir un presupuesto sin compromiso en menos de 24 horas.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuánto tiempo lleva hacer una página web?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Trabajamos con un proceso de Website Sprint que permite lanzar en 7 días hábiles para proyectos enfocados como landing pages y sitios empresariales. E-commerce y apps pueden tomar más tiempo según el alcance.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Hacen diseño web para empresas en Argentina?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Build Haus Studio trabaja con empresas en Uruguay y Argentina de forma 100% remota. Tenemos clientes en Montevideo, Buenos Aires y el resto de la región latinoamericana.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué incluye el diseño de una página web?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cada proyecto incluye estrategia de oferta, estructura de contenido, diseño visual a medida, desarrollo responsive, formulario de contacto y setup para medición. El proceso arranca con una sesión de descubrimiento para entender el negocio y los objetivos.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es una landing page y para qué sirve?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Una landing page es una página diseñada con un único objetivo: convertir visitantes en clientes, leads o suscriptores. Es ideal para campañas de publicidad, lanzamientos de productos o captación de contactos en Uruguay y Argentina.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Hacen sitios web con Shopify en Uruguay?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Desarrollamos e-commerce con Shopify para marcas en Uruguay y Argentina, con páginas de producto optimizadas, colecciones, experiencia mobile y camino de compra orientado a la conversión.",
+      },
+    },
+  ],
+};
+
 /* ── JSON-LD: HowTo (proceso) ────────────────────────────────────── */
 export const procesoSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "Proceso de diseño y desarrollo web — Build Haus Studio",
-  description: "De idea desordenada a sitio web publicado en 7 días hábiles.",
+  name: "Cómo hacemos el diseño y desarrollo web — Build Haus Studio",
+  description: "De idea a sitio web publicado en 7 días hábiles.",
   totalTime: "P7D",
   step: [
     { "@type": "HowToStep", name: "Descubrimiento", text: "Entendemos negocio, oferta, audiencia y objetivos." },
@@ -195,7 +266,7 @@ export const procesoSchema = {
     { "@type": "HowToStep", name: "Diseño",         text: "Sistema visual a medida con layout, tipografía y responsive." },
     { "@type": "HowToStep", name: "Desarrollo",     text: "Código limpio con Next.js, performance y experiencia mobile." },
     { "@type": "HowToStep", name: "Lanzamiento",    text: "Testing, publicación y configuración de analytics." },
-    { "@type": "HowToStep", name: "Mejora continua",text: "Revisión y optimización post-lanzamiento." },
+    { "@type": "HowToStep", name: "Mejora continua", text: "Revisión y optimización post-lanzamiento." },
   ],
 };
 

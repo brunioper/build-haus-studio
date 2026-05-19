@@ -193,3 +193,5 @@ export const processSteps = [
 export const contactEmail = "hello@buildhaus.studio";
 export const bookingHref = "https://calendly.com/bruno-opertti/30min";
 export const instagramHref = "https://www.instagram.com/buildhaus.studio/";
+export const whatsappPhone = "+59893806176";
+export const whatsappHref = "https://wa.me/59893806176";

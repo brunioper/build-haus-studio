@@ -5,6 +5,7 @@ import { AppChrome } from "@/components/app-chrome";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import { homeMetadata, organizationSchema, siteUrl, websiteSchema } from "@/lib/seo";
+import { WhatsAppBubble } from "@/components/ui/WhatsAppBubble";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Nav />
         {children}
         <Footer />
+        <WhatsAppBubble />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </body>

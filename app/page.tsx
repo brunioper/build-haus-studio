@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { homeMetadata, siteUrl } from "@/lib/seo";
+import { faqSchema, homeMetadata, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...homeMetadata,
@@ -23,10 +23,12 @@ import { ProcessPreview } from "@/components/sections/ProcessPreview";
 import { ProjectsPreview } from "@/components/sections/ProjectsPreview";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { BookingCTA } from "@/components/sections/BookingCTA";
+import { FaqSection } from "@/components/sections/FaqSection";
 
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <BlueprintHero />
       <main className="home-main" id="home-main">
         <HomeIntro />
@@ -37,6 +39,7 @@ export default function HomePage() {
         <ProjectsPreview />
         <ProcessPreview />
         <PricingTeaser />
+        <FaqSection />
         <FinalCTA />
       </main>
     </>
